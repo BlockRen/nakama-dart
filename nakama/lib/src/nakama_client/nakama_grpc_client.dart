@@ -84,6 +84,8 @@ class NakamaGrpcClient extends NakamaBaseClient {
       port: port,
       options: ChannelOptions(
         credentials: ssl == true ? const ChannelCredentials.secure() : const ChannelCredentials.insecure(),
+        connectTimeout: Duration(seconds: 5),
+        connectionTimeout: Duration(seconds: 5),
       ),
     );
 
